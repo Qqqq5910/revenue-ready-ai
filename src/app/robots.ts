@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://revenueready.ai/sitemap.xml",
+    sitemap: "https://wangjunyi.vercel.app/sitemap.xml",
   };
 }

@@ -1,8 +1,14 @@
 # RevenueReady AI
 
-RevenueReady AI is a v0.1.2 revenue-readiness scanner for founders shipping
+RevenueReady AI is a v0.1.3 revenue-readiness scanner for founders shipping
 AI-built web apps from tools such as Lovable, Bolt, Replit, Cursor, v0, and
 Claude Code.
+
+Production demo: [https://wangjunyi.vercel.app](https://wangjunyi.vercel.app)
+
+GitHub repo: [https://github.com/Qqqq5910/revenue-ready-ai](https://github.com/Qqqq5910/revenue-ready-ai)
+
+Contact: 13916903034@163.com
 
 It accepts a public GitHub repo URL or an uploaded `.zip` archive, scans text
 files only, and returns a deterministic report with:
@@ -52,7 +58,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-No environment variables are required for v0.1.2.
+No environment variables are required for v0.1.3.
 
 ## Quality Commands
 
@@ -72,7 +78,7 @@ Import the repo in Vercel as a Next.js project and use the default build command
 pnpm build
 ```
 
-No environment variables are required for v0.1.2.
+No environment variables are required for v0.1.3.
 
 With the Vercel CLI:
 
@@ -109,7 +115,7 @@ Supported public URL shapes:
 - `https://github.com/owner/repo/tree/main`
 - `https://github.com/owner/repo/tree/feature/some-branch`
 
-Private repos and GitHub OAuth are intentionally out of scope for v0.1.2. If a
+Private repos and GitHub OAuth are intentionally out of scope for v0.1.3. If a
 public repo fetch fails because of rate limits or repo size, upload a `.zip`
 instead.
 
@@ -144,6 +150,22 @@ Then verify:
 - JSON export downloads a report.
 - Copy buttons work for individual fixes and the consolidated repair prompt.
 
+## First 10 User Feedback Script
+
+Ask each first user:
+
+- What did you use to build the app: Lovable, Bolt, Cursor, Replit, v0, Claude
+  Code, or something else?
+- Are you using Stripe?
+- Are you using Supabase?
+- Did the report find something real?
+- Which finding was confusing or wrong?
+- Did the Launch Fix Plan help?
+- Would you pay for done-for-you fixes?
+- Would you pay for continuous monitoring?
+- What price would feel reasonable?
+- What would make you trust this more?
+
 ## Known False Positives And False Negatives
 
 RevenueReady AI uses deterministic text rules. It can miss issues hidden behind
@@ -153,7 +175,7 @@ Treat the report as a launch checklist, not a formal security audit.
 
 ## Privacy Note
 
-v0.1.2 does not persist uploaded repos or scan results. Uploaded zip files and
+v0.1.3 does not persist uploaded repos or scan results. Uploaded zip files and
 GitHub archives are scanned in memory for the request and discarded.
 
 Do not upload highly sensitive private code to a public demo unless private

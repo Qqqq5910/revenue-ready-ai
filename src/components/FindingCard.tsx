@@ -80,10 +80,47 @@ export function FindingCard({ finding }: { finding: Finding }) {
         </div>
       </div>
 
+      <div className="mt-3 rounded-md border border-zinc-200 bg-zinc-50 p-3">
+        <p className="text-xs font-semibold uppercase text-zinc-400">
+          What to verify manually
+        </p>
+        <p className="mt-1 text-sm leading-6 text-zinc-600">
+          {manualVerificationFor(finding)}
+        </p>
+      </div>
+
       <div className="mt-3 rounded-md bg-zinc-950 p-3 text-sm leading-6 text-zinc-100">
         {finding.fixPrompt}
       </div>
       <p className="mt-2 text-xs text-zinc-400">Rule: {finding.scannerRule}</p>
     </article>
   );
+}
+
+function manualVerificationFor(finding: Finding) {
+  if (finding.scannerRule === "payments.stripeWebhookSignatureVerification") {
+    return "Verify the webhook route reads the raw body, reads the Stripe-Signature header, and calls stripe.webhooks.constructEvent before updating subscription state.";
+  }
+
+  if (finding.category === "Paywall Bypass Risk") {
+    return "Verify paid features are checked server-side, not only through client state, localStorage, query params, or UI flags.";
+  }
+
+  if (finding.category === "Supabase & Data Access") {
+    return "Verify production tables have RLS enabled and policies scoped to auth.uid(), team membership, or explicit roles.";
+  }
+
+  if (finding.category === "Secrets & Key Exposure") {
+    return "Rotate any real exposed key immediately, even if it only appeared in a test branch or old commit. Keep secrets server-side only.";
+  }
+
+  if (finding.category === "Launch Basics") {
+    return "Verify privacy, terms, support, refund, and cancellation copy match your actual product, payment flow, and jurisdiction.";
+  }
+
+  if (finding.category === "Observability") {
+    return "Verify production errors, checkout failures, webhook failures, and subscription updates are visible in logs or error tracking.";
+  }
+
+  return "Review the affected files and confirm the finding matches the production behavior before charging users.";
 }

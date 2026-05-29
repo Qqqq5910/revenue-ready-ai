@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://revenueready.ai";
+  const baseUrl = "https://wangjunyi.vercel.app";
 
   return ["", "/privacy", "/terms", "/security"].map((path) => ({
     url: `${baseUrl}${path}`,

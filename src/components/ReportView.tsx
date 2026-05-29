@@ -3,6 +3,7 @@
 import { Clipboard, Radar } from "lucide-react";
 import { useState } from "react";
 import { CATEGORIES, type Category, type Finding, type ScanReport } from "@/lib/scanner/types";
+import { FeedbackCta } from "./FeedbackCta";
 import { FindingCard } from "./FindingCard";
 import { JsonExportButton } from "./JsonExportButton";
 import { ScoreCard } from "./ScoreCard";
@@ -90,6 +91,7 @@ function ReportContent({ report }: { report: ScanReport }) {
       </div>
 
       <div className="space-y-6">
+        {highRiskCount === 0 ? <LaunchVerificationPlan report={report} /> : null}
         <LaunchFixPlanView report={report} />
         {CATEGORIES.map((category) => (
           <FindingGroup
@@ -98,6 +100,7 @@ function ReportContent({ report }: { report: ScanReport }) {
             findings={report.findings.filter((finding) => finding.category === category)}
           />
         ))}
+        <FeedbackCta />
       </div>
     </div>
   );
@@ -184,6 +187,58 @@ function FixPath({ title, items }: { title: string; items: string[] }) {
         ))}
       </ul>
     </div>
+  );
+}
+
+function LaunchVerificationPlan({ report }: { report: ScanReport }) {
+  const passedCategories = CATEGORIES.filter(
+    (category) =>
+      !report.findings.some(
+        (finding) =>
+          finding.category === category &&
+          (finding.severity === "critical" || finding.severity === "high"),
+      ),
+  );
+
+  return (
+    <section className="rounded-md border border-sky-200 bg-sky-50 p-4">
+      <h3 className="text-xl font-semibold text-sky-950">Launch Verification Plan</h3>
+      <p className="mt-2 text-sm leading-6 text-sky-900">
+        No critical or high-risk findings were found by static analysis. That is
+        a good sign, but it does not prove the app is safe to charge users.
+      </p>
+      <div className="mt-4 grid gap-3 lg:grid-cols-3">
+        <div className="rounded-md border border-sky-200 bg-white p-3">
+          <h4 className="font-semibold text-zinc-900">What passed</h4>
+          <p className="mt-2 text-sm leading-6 text-zinc-600">
+            No critical or high blockers were detected in{" "}
+            {passedCategories.join(", ")}.
+          </p>
+        </div>
+        <div className="rounded-md border border-sky-200 bg-white p-3">
+          <h4 className="font-semibold text-zinc-900">What static analysis cannot prove</h4>
+          <p className="mt-2 text-sm leading-6 text-zinc-600">
+            It cannot prove production Stripe events, cancellations, refunds,
+            entitlement access, or Supabase policies are configured correctly.
+          </p>
+        </div>
+        <div className="rounded-md border border-sky-200 bg-white p-3">
+          <h4 className="font-semibold text-zinc-900">Manual checks before charging</h4>
+          <ul className="mt-2 space-y-2 text-sm leading-6 text-zinc-600">
+            {[
+              "Test Stripe checkout, webhook events, cancellations, refunds, and paid-feature access.",
+              "Review production Supabase RLS policies directly in Supabase.",
+              "Rotate any key that may have been exposed historically.",
+            ].map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
   );
 }
 

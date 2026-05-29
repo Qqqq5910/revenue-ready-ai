@@ -4,6 +4,7 @@ import { CheckCircle2, Radar, ShieldCheck, WalletCards } from "lucide-react";
 import { useState } from "react";
 import { sampleReport } from "@/lib/sampleReport";
 import type { ScanReport } from "@/lib/scanner/types";
+import { FeedbackCta } from "./FeedbackCta";
 import { ReportView } from "./ReportView";
 import { ScannerForm } from "./ScannerForm";
 
@@ -29,7 +30,7 @@ const nonGoals = [
   "Does not guarantee security or compliance",
   "Does not replace a real security review",
   "Does not modify code or create PRs",
-  "Does not scan private repos in v0.1",
+  "Does not scan private repos in v0.1.3",
   "Does not store projects or reports",
 ];
 
@@ -43,7 +44,7 @@ export function ScannerExperience() {
           <div className="flex flex-col justify-center">
             <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-800">
               <Radar className="h-4 w-4" aria-hidden />
-              RevenueReady AI v0.1.2
+              RevenueReady AI v0.1.3
             </div>
             <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-zinc-950 sm:text-5xl lg:text-6xl">
               Is your AI-built app ready to charge users?
@@ -73,6 +74,9 @@ export function ScannerExperience() {
 
           <section id="scanner-card" className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 shadow-sm">
             <ScannerForm onReport={setReport} />
+            <div className="mt-4">
+              <FeedbackCta compact />
+            </div>
           </section>
         </div>
       </section>

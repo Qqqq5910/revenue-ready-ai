@@ -44,6 +44,10 @@ export default function TermsPage() {
           substitute for a real security review.
         </p>
       </InfoSection>
+
+      <InfoSection title="Contact">
+        <p>Contact: 13916903034@163.com</p>
+      </InfoSection>
     </InfoPage>
   );
 }

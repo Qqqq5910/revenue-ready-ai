@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://revenueready.ai"),
+  metadataBase: new URL("https://wangjunyi.vercel.app"),
   title: {
     default: "RevenueReady AI — Check if your AI-built app is ready to charge users",
     template: "%s — RevenueReady AI",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       "Scan AI-built apps for Stripe webhook issues, paywall bypass risk, leaked secrets, Supabase RLS problems, and launch-readiness gaps.",
     type: "website",
-    url: "https://revenueready.ai",
+    url: "https://wangjunyi.vercel.app",
     siteName: "RevenueReady AI",
   },
   twitter: {
@@ -45,7 +45,7 @@ function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>RevenueReady AI v0.1.2 · Static analysis only.</p>
+        <p>RevenueReady AI v0.1.3 · Static analysis only.</p>
         <nav className="flex flex-wrap gap-4">
           <Link className="hover:text-zinc-950" href="/privacy">
             Privacy
@@ -56,7 +56,10 @@ function Footer() {
           <Link className="hover:text-zinc-950" href="/security">
             Security
           </Link>
-          <a className="hover:text-zinc-950" href="https://github.com/Qqqq5910/revenue-ready-ai">
+          <a
+            className="hover:text-zinc-950"
+            href="https://github.com/Qqqq5910/revenue-ready-ai"
+          >
             GitHub
           </a>
         </nav>

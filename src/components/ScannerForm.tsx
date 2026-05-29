@@ -68,6 +68,10 @@ export function ScannerForm({ onReport }: { onReport: (report: ScanReport) => vo
           <p className="text-sm text-zinc-500">Public GitHub repo or .zip upload.</p>
         </div>
       </div>
+      <div className="mt-4 rounded-md border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-900">
+        Only scan code you own or have permission to scan. Do not upload highly
+        sensitive private code to this public demo.
+      </div>
 
       <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 rounded-md bg-zinc-100 p-1">

@@ -14,13 +14,13 @@ export default function PrivacyPage() {
     >
       <InfoSection title="What the scanner does">
         <p>
-          RevenueReady AI v0.1 does static analysis only. It reads text files in
+          RevenueReady AI v0.1.3 does static analysis only. It reads text files in
           an uploaded zip file or public GitHub archive and returns a scan report
           in the response.
         </p>
         <p>
           Uploaded zip files and GitHub repo contents are processed for the scan
-          response. v0.1 does not intentionally persist uploaded source code or
+          response. v0.1.3 does not intentionally persist uploaded source code or
           scan reports.
         </p>
       </InfoSection>
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
       <InfoSection title="Public GitHub scans">
         <p>
           Public GitHub repo scanning downloads public code only. Private repo
-          access and GitHub OAuth are not implemented in v0.1.
+          access and GitHub OAuth are not implemented in v0.1.3.
         </p>
       </InfoSection>
 

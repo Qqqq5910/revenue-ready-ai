@@ -2,7 +2,7 @@ import type { Category, ScanLimitConfig, Severity } from "./types";
 
 const MB = 1024 * 1024;
 
-export const SCANNER_VERSION = "0.1.2";
+export const SCANNER_VERSION = "0.1.3";
 
 export const DEFAULT_LIMITS: ScanLimitConfig = {
   maxArchiveBytes: 8 * MB,

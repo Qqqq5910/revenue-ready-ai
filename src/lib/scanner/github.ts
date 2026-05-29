@@ -61,7 +61,7 @@ export async function fetchGitHubArchive(repoUrl: string) {
   const response = await fetch(parsed.archiveUrl, {
     headers: {
       Accept: "application/vnd.github+json",
-      "User-Agent": "revenueready-ai-v0.1",
+      "User-Agent": "revenueready-ai-v0.1.3",
     },
     redirect: "follow",
   });
@@ -69,7 +69,7 @@ export async function fetchGitHubArchive(repoUrl: string) {
   if (!response.ok) {
     const reason =
       response.status === 404
-        ? "The repository or branch was not found. Private repos are not supported in v0.1."
+        ? "The repository or branch was not found. Private repos are not supported in v0.1.3."
         : response.status === 403
           ? "GitHub rate limited or denied the request. Try a zip upload instead."
           : "GitHub could not return the public archive.";
@@ -81,7 +81,7 @@ export async function fetchGitHubArchive(repoUrl: string) {
 
   if (contentLength && Number(contentLength) > DEFAULT_LIMITS.maxArchiveBytes) {
     throw new ScanError(
-      `GitHub archive is too large for v0.1. The limit is ${Math.round(DEFAULT_LIMITS.maxArchiveBytes / 1024 / 1024)} MB.`,
+      `GitHub archive is too large for v0.1.3. The limit is ${Math.round(DEFAULT_LIMITS.maxArchiveBytes / 1024 / 1024)} MB.`,
       "ARCHIVE_TOO_LARGE",
       413,
     );
@@ -92,7 +92,7 @@ export async function fetchGitHubArchive(repoUrl: string) {
 
   if (buffer.byteLength > DEFAULT_LIMITS.maxArchiveBytes) {
     throw new ScanError(
-      `GitHub archive is too large for v0.1. The limit is ${Math.round(DEFAULT_LIMITS.maxArchiveBytes / 1024 / 1024)} MB.`,
+      `GitHub archive is too large for v0.1.3. The limit is ${Math.round(DEFAULT_LIMITS.maxArchiveBytes / 1024 / 1024)} MB.`,
       "ARCHIVE_TOO_LARGE",
       413,
     );

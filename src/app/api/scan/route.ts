@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
     if (archive instanceof File && archive.size > 0) {
       if (!archive.name.toLowerCase().endsWith(".zip")) {
-        throw new ScanError("Upload a .zip archive for v0.1 scans.", "INVALID_ARCHIVE");
+        throw new ScanError("Upload a .zip archive for v0.1.3 scans.", "INVALID_ARCHIVE");
       }
 
       if (!isReasonableZipContentType(archive.type)) {
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
       if (archive.size > DEFAULT_LIMITS.maxArchiveBytes) {
         throw new ScanError(
-          `Zip upload is too large. The v0.1 limit is ${Math.round(DEFAULT_LIMITS.maxArchiveBytes / 1024 / 1024)} MB.`,
+          `Zip upload is too large. The v0.1.3 limit is ${Math.round(DEFAULT_LIMITS.maxArchiveBytes / 1024 / 1024)} MB.`,
           "ARCHIVE_TOO_LARGE",
           413,
         );

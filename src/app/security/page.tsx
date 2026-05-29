@@ -28,7 +28,7 @@ export default function SecurityPage() {
 
       <InfoSection title="Current limitations">
         <p>
-          v0.1 has no private repo auth, no persistent audit trail, no human
+          v0.1.3 has no private repo auth, no persistent audit trail, no human
           review, and no guarantee that every issue will be detected.
         </p>
         <p>

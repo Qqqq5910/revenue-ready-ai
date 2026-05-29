@@ -29,7 +29,7 @@ export function extractTextFilesFromZip(
 ) {
   if (archive.byteLength > limits.maxArchiveBytes) {
     throw new ScanError(
-      `Archive is too large. The v0.1 limit is ${formatBytes(limits.maxArchiveBytes)}.`,
+      `Archive is too large. The v0.1.3 limit is ${formatBytes(limits.maxArchiveBytes)}.`,
       "ARCHIVE_TOO_LARGE",
       413,
     );
@@ -83,7 +83,7 @@ export function extractTextFilesFromZip(
 
     if (files.length >= limits.maxFiles) {
       throw new ScanError(
-        `Too many text files to scan. The v0.1 limit is ${limits.maxFiles} files after ignored directories are removed.`,
+        `Too many text files to scan. The v0.1.3 limit is ${limits.maxFiles} files after ignored directories are removed.`,
         "TOO_MANY_FILES",
         413,
       );
@@ -108,7 +108,7 @@ export function extractTextFilesFromZip(
 
     if (stats.scannedBytes + data.byteLength > limits.maxTotalTextBytes) {
       throw new ScanError(
-        `The archive has too much text to scan safely. The v0.1 text limit is ${formatBytes(limits.maxTotalTextBytes)}.`,
+        `The archive has too much text to scan safely. The v0.1.3 text limit is ${formatBytes(limits.maxTotalTextBytes)}.`,
         "TEXT_BYTES_LIMIT",
         413,
       );
