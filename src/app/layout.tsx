@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SCANNER_VERSION } from "@/lib/scanner/constants";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>RevenueReady AI v0.1.3 · Static analysis only.</p>
+        <p>RevenueReady AI v{SCANNER_VERSION} · Static analysis only.</p>
         <nav className="flex flex-wrap gap-4">
           <Link className="hover:text-zinc-950" href="/privacy">
             Privacy

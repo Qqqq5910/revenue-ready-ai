@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { InfoPage, InfoSection } from "@/components/InfoPage";
+import { SCANNER_VERSION } from "@/lib/scanner/constants";
 
 export const metadata: Metadata = {
   title: "Security",
@@ -28,8 +29,9 @@ export default function SecurityPage() {
 
       <InfoSection title="Current limitations">
         <p>
-          v0.1.3 has no private repo auth, no persistent audit trail, no human
-          review, and no guarantee that every issue will be detected.
+          v{SCANNER_VERSION} has no private repo auth, no persistent audit
+          trail, no human review, and no guarantee that every issue will be
+          detected.
         </p>
         <p>
           Static analysis can miss issues hidden behind unusual abstractions,

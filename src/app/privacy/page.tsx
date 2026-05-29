@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { InfoPage, InfoSection } from "@/components/InfoPage";
+import { SCANNER_VERSION } from "@/lib/scanner/constants";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -14,21 +15,21 @@ export default function PrivacyPage() {
     >
       <InfoSection title="What the scanner does">
         <p>
-          RevenueReady AI v0.1.3 does static analysis only. It reads text files in
-          an uploaded zip file or public GitHub archive and returns a scan report
-          in the response.
+          RevenueReady AI v{SCANNER_VERSION} does static analysis only. It reads
+          text files in an uploaded zip file or public GitHub archive and returns
+          a scan report in the response.
         </p>
         <p>
           Uploaded zip files and GitHub repo contents are processed for the scan
-          response. v0.1.3 does not intentionally persist uploaded source code or
-          scan reports.
+          response. v{SCANNER_VERSION} does not intentionally persist uploaded
+          source code or scan reports.
         </p>
       </InfoSection>
 
       <InfoSection title="Public GitHub scans">
         <p>
           Public GitHub repo scanning downloads public code only. Private repo
-          access and GitHub OAuth are not implemented in v0.1.3.
+          access and GitHub OAuth are not implemented in v{SCANNER_VERSION}.
         </p>
       </InfoSection>
 
