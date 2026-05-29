@@ -56,7 +56,7 @@ function Footer() {
           <Link className="hover:text-zinc-950" href="/security">
             Security
           </Link>
-          <a className="hover:text-zinc-950" href="https://github.com/replace-me/revenueready-ai">
+          <a className="hover:text-zinc-950" href="https://github.com/Qqqq5910/revenue-ready-ai">
             GitHub
           </a>
         </nav>
